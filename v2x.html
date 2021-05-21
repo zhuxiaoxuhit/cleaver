@@ -1,0 +1,1453 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>车联网行业调研</title>
+  <style type="text/css">
+    body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #222;
+  font-size: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+  background-color: #f7f7f7;
+}
+
+.slide-content {
+  width: 800px;
+  height: 600px;
+  overflow: hidden;
+  margin: 80px auto 0 auto;
+  padding: 30px;
+
+  font-weight: 200;
+  font-size: 200%;
+  line-height: 1.375;
+}
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.arrow {
+  width: 0; height: 0;
+  border: 30px solid #333;
+  float: left;
+  margin-right: 30px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.prev {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+
+  border-left-width: 0;
+  border-right-width: 50px;
+}
+
+.next {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+
+  border-left-width: 50px;
+  border-right-width: 0;
+}
+
+.prev:hover {
+  border-right-color: #888;
+  cursor: pointer;
+}
+
+.next:hover {
+  border-left-color: #888;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 300%;
+  line-height: 1.2;
+  text-align: center;
+  margin: 170px 0 0;
+}
+
+h2 {
+  font-size: 100%;
+  line-height: 1.2;
+  margin: 5px 0;
+  text-align: center;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 140%;
+  line-height: 1.2;
+  border-bottom: 1px solid #aaa;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+ul {
+  padding: 20px 0 0 60px;
+  font-weight: 200;
+  line-height: 1.375;
+}
+
+.author h1 {
+  font-size: 170%;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.author h3 {
+  font-weight: 100;
+  text-align: center;
+  font-size: 95%;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: #44a4dd;
+}
+
+a:hover {
+  color: #66b5ff;
+}
+
+pre {
+  font-size: 60%;
+  line-height: 1.3;
+}
+
+.progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  z-index: 1;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 3px;
+  background-color: #b4b4b4;
+
+  -webkit-transition: width 0.05s ease-out;
+  -moz-transition: width 0.05s ease-out;
+  -o-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 850px) {
+
+  body {
+    font-size: 70%;
+  }
+
+  .slide-content {
+    width: auto;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  h1 {
+    margin-top: 120px;
+  }
+
+  .prev, .prev:hover {
+    border-right-color: rgba(135, 135, 135, 0.5);
+  }
+
+  .next, .next:hover {
+    border-left-color: rgba(135, 135, 135, 0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 50%;
+    overflow: hidden;
+  }
+
+  .slide-content {
+    padding: 10px;
+    margin-top: 10px;
+    height: 340px;
+  }
+
+  h1 {
+    margin-top: 50px;
+  }
+
+  ul {
+    padding-left: 25px;
+  }
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+  }
+
+  @page {
+    size: letter;
+  }
+
+  .hidden {
+    display: inline;
+  }
+
+  html {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  body {
+    margin: 0 auto !important;
+    border: 0;
+    padding: 0;
+    float: none !important;
+    overflow: visible;
+    background: none !important;
+    font-size: 52%;
+  }
+
+  .progress, .controls {
+    display: none;
+  }
+
+  .slide {
+    position: static;
+  }
+
+  .slide-content {
+    border: 1px solid #222;
+    margin-top: 0;
+    margin-bottom: 40px;
+    height: 3.5in;
+    overflow: visible;
+  }
+
+  .slide:nth-child(even) {
+    /* 2 slides per page */
+    page-break-before: always;
+  }
+}
+
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+
+  </style>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+  <div class="slide " id="slide-1">
+    <section class="slide-content"><h1 id="-">车联网行业调研</h1>
+<h2 id="zhuxiaoxuhit-gmail-com"><a href="mailto:zhuxiaoxuhit@gmail.com">zhuxiaoxuhit@gmail.com</a></h2>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-2">
+    <section class="slide-content"><h3 id="-">名词解释</h3>
+<ul>
+<li><strong>V2X</strong> ：车联网(Vehicle-to-everything)，是将汽车和其他车辆或是可能影响汽车的设备所进行的通信。</li>
+<li><strong>RIFD</strong>: 射频识别 (Radio-frequency identification) 简称RIFD，射频识别是一种无线通信技术，可以通过无线电信号识别特定目标并读写相关数据，而无需识别系统与特定目标之间建立机械或者光学接触。</li>
+<li><strong>RSU</strong>: 路侧单元(Road Side Unit)是ETC系统中，安装在路侧，采用DSRC（Dedicated Short Range Communication）技术，与车载单元（OBU，On Board Unit）进行通讯，实现车辆身份识别，电子扣分的装置。</li>
+<li><strong>DSRC</strong>:专用短距离通信（Dedicated short-range communications）技术是专为汽车使用而设计的，单向或双向、短距离至中距离的无线通信信道，以及一组对应的协议和标准。</li>
+<li><strong>OTA</strong>:   空中编程（英语：Over-the-air programming，缩写OTA）是一种为设备分发新软件、配置，乃至更新加密密钥（为例如移动电话、数字视频转换盒或安全语音通信设备——加密的双向无线电）的方法</li>
+<li><strong>ICT</strong>： 信息及通信技术或信息通信科技（Information and Communications Technology）是信息技术及通信技术的合称。以往通信技术与信息技术是两个完全不同的范畴：通信技术着重于消息传播的发送技术，而信息技术着重于信息的编码或解码，以及在通信载体的传输方式。随着技术的发展，这两种技术慢慢变得密不可分，从而渐渐融合成为一个范畴。</li>
+<li><strong>OBD</strong>：On-Board Diagnostics，车载诊断系统，可由OBD接口通过通信协议获取少量车辆信息，用于车辆诊断。</li>
+<li><strong>T-Box</strong>：Telematics BOX，简称车载T-BOX。车联网系统包含四部分，主机、车载T-BOX、手机APP及后台系统。主机主要用于车内的影音娱乐，以及车辆信息显示；车载T-BOX主要用于和后台系统/手机APP通信，实现手机APP的车辆信息显示与控制。</li>
+<li><strong>CAN</strong>：控制器局域网(Controller Area Network)。是一种功能丰富的车用总线标准。被设计用于在不需要主机（Host）的情况下，允许网络上的单片机和仪器相互通信。</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-3">
+    <section class="slide-content"><h3 id="-">目录</h3>
+<ol>
+<li><p>车联网概述</p>
+</li>
+<li><p>产业链</p>
+</li>
+<li>商业化模式</li>
+<li>发展历程</li>
+<li>驱动因素</li>
+<li>制约因素</li>
+<li>国内车联网巨头调研</li>
+<li>国内车联网企业横向调研</li>
+<li>国内外车联网企业纵向调研</li>
+<li>AI技术及行业调研</li>
+<li>AI在车联网方面的应用</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-4">
+    <section class="slide-content"><h3 id="-">车联网概述</h3>
+<ul>
+<li><p>定义</p>
+<p>车联网(Internet of Vehicles)指按照一定的通信协议和数据交互标准，在“人-车-路-云“之间进行信息交换的网络。智能汽车通过 GPS、RFID、传感器、摄像头图像处理等装置自动完成对自身环境和状态信息的采集，并支持5G V2X为代表的高速低时延通信技术，车与人、车、路能够智能地交换和共享信息，并将自身的各种信息传输汇聚到云端的中央处理器进行分析和决策，实现安全、舒适、节能、高效行驶。</p>
+</li>
+<li><p>V2X(Vehicle-to-Everything)</p>
+<p>其中V2X包括V2N(Vehicle-to-Network),  V2V( Vehicle-to-Vehicle), V2I(Vehicle-to-Infrastructure), V2P(Vehicle-to-Pedestrian), 分别指车辆与网络、其他车辆、道路设施、以及行人之间的智能网联通信。</p>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-5">
+    <section class="slide-content"><h3 id="-">车联网概述</h3>
+<ul>
+<li><p>车联网架构</p>
+<ol>
+<li>感知执行层
+感知执行层用于提供对物理世界的感知与控制. 感知执行层中的 IoV 服务端系统可通过感知技术实现对人、车、环境的各种静态信息(标识、属性等) 和动态信息(各种事件、服务请求等) 的监测、提取,并通过接收和执行协同控制指令,反馈协同控制结果。</li>
+<li>接入与传控层
+接入与传控层基于信息通信网络技术实现 IoV 各个元素之间的组网与信息交互,包括接入层和传控层</li>
+<li>协同计算控制层
+协同计算控制层用以实现全网范围内的“人-车-环境冶协同计算与控制</li>
+<li>应用层
+应用层提供多种不同类型服务,以实现人、车、环境协同服务需求,同时还需支持能力开放与共享,以支持新型服务形态和商业运营模式</li>
+</ol>
+<p><img src="https://lh6.googleusercontent.com/gHefJ1su012lN-qXN2FmiGCPAiQpZ7ONQlD4kqQFa4lZWE51J1vJNkPfvo9whPdat70FdlHKZ9eYWME9mpGJAoHL9Fy4FbvLTt6jTaS10QqKzRKm50RHYLIzTfmS5eR15I4DAOAbf1g" alt="img"></p>
+<p>--</p>
+</li>
+</ul>
+<h3 id="-">车联网产业链</h3>
+<p>以智能汽车为核心的产业链从硬件，软件到芯片，产业链长，环环相扣，涉及的领域多。</p>
+<ul>
+<li>行业上游主要是元器件设备制造商: RIFD, 传感器(图像,激光雷达,超声波雷达等), 定位芯片等。</li>
+<li>行业中游主要是终端设备制造商以及软件应用平台: 车载操作系统，应用平台，软件开发商，汽车生产商，RSU，智能车舱, 高精准地图等。 </li>
+<li>行业下游主要是通信芯片，车载芯片以及云端协同控制处理系统。</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-6">
+    <section class="slide-content"><h3 id="-">车联网商业化模式</h3>
+<ul>
+<li><p>硬件支持</p>
+<blockquote>
+<p>包含智能驾驶芯片、通信模组、T-Box、RSU、智能中控仪表、雷达、定位芯片、智能摄像头、RFID等。</p>
+</blockquote>
+<ul>
+<li>智能驾驶芯片国内有寒武纪、地平线、华为，国外有Nvidia EGX A100、Mobileye Eye系列、特斯拉FSD芯片等。其中Nvidia EGX A100为7nm制程工艺，最世界最先进。地平线将推出新一代智能驾驶系列芯片“征程5”算力达到96 TOPs。</li>
+<li>通信模组厂商有华为、中兴、大唐电信、高鸿股份，国外有intel等</li>
+<li>T-Box厂商国内有华为，高新兴，辛巴克吉，联友科技等。</li>
+<li>智能摄像头厂商国内有经纬恒润、智华，国外有索尼、nxp、MAGNA、Panasonic等。</li>
+<li>智能中控仪表厂商国内有航盛科技、速显微、德赛西威等，国外有ITAS、Hyundai等。</li>
+</ul>
+</li>
+<li><p>软件服务</p>
+<blockquote>
+<p>包括车载操作系统，车联网安全，地图引擎，车载计算平台等。</p>
+</blockquote>
+<ul>
+<li>车载操作系统国内有阿里的AliOS、百度的小度车载OS、华为鸿蒙OS等，国外有谷歌Android Automotive OS、大众VM.OS、特斯拉Version等。</li>
+<li>高精地图引擎厂商国内有百度、高德、四维图新等，国外有谷歌等。</li>
+</ul>
+</li>
+<li><p>云计算</p>
+<blockquote>
+<p>包括云端计算芯片，云端决策系统等。</p>
+</blockquote>
+<p>该部分计算芯片被英伟达GPU，谷歌TPU包揽，国产厂商很难入围。国内做的比较好的有天数智芯、寒武纪。天数智芯最新测试中的BI芯片32位浮点数算力达到37 TFLOPS。</p>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-7">
+    <section class="slide-content"><h3 id="-">车联网发展历程</h3>
+<ul>
+<li>日本在20世纪80年代中期至90年代中期，相继完成了路一一车通信系统(RACS)，交通信息通信系统(TLCS)、超智能车辆系统(SSVS)、安全车辆系统(ASV)等方面的研究。</li>
+<li>1996年，通用汽车推出了OnStar，是最早导入车联网功能的汽车制造商。</li>
+<li>2009年通用汽车、上汽集团以及上海通用汽车合资组建上海安吉星信息服务有限公司，启动中国市场的车载信息服务，同年，丰田的G-Book搭载到雷克萨斯RX350在中国上市；上汽通用的OnStar在中国正式推出车联网服务，率先搭载凯迪拉克车型。</li>
+<li>2013 年，宇通客车的车联网产品安节通的车载终端和系统平台相继投入使用，宇通客车的车联网产品从车辆技术、驾驶工作法、智能管理体系三方面为客户提供“人、车、管理”整体解决方案；华为推出前装车载移动热点 DA6810 和汽车在线诊断系统 DA3100 两个车联网解决方案；上汽集团旗下荣威推出搭载Inkanet 系统的荣威350。</li>
+<li>2015年阿里巴巴和上汽合作成立斑马网络，百度提出了车联网解决方案CarLife，CarLife 是一款跨平台的车联网解决方案，只需通过数据线或者 WIFI 将手机连接到车载系统上，就可在汽车移动过程中访问诸多应用。</li>
+<li>2018年长安汽车启动”北斗天枢”智能战略，并宣布在2020年不再生产非网联车 。</li>
+<li>2019年奇瑞发布”奇瑞雄狮”智能化战略,布局”全生命周期”的数字化，智能化模式。</li>
+<li>2020年华为联合18家车企成立”5G汽车生态圈”。</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-8">
+    <section class="slide-content"><h3 id="-">驱动因素</h3>
+<ul>
+<li><p>政策指导</p>
+<blockquote>
+<p>对于中国的车联网商业化，国家相关政策起到了很好的推动作用。2021年4月国务院印发的《国家综合立体交通网规划纲要》，推动智能网联汽车的进一步发展，意味着车联网产业在中国将要迎来巨大的机遇。</p>
+</blockquote>
+<ul>
+<li>2021年4月24日,中共中央、国务院印发了《国家综合立体交通网规划纲要》，针对国内交通行业现实短板和发展需求作出部署，将智能网联汽车、智慧交通基础设施建设均作为重点任务化协同发展。</li>
+<li>2020年11月2日,国务院发布《新能源汽车产业发展规划(2021—2035年)》，应用虚拟现实、大数据、人工智能等技术，建立汽车电动化、网联化、智能化虚拟仿真和测试验证平台，提升整车、关键零部件的计量测试、性能评价与检测认证能力。</li>
+<li>2020年4月16日，工信部发布《2020年智能网联汽车标准化工作要点》，提出加快推进四项急需关键标准出台，其中包括基础通用类标准（如分级标准、术语定义等）、汽车智能化标准（如自动驾驶等）、汽车网联化标准（如V2X、数字认证等）、行业协同和标准联合研究（如车路协同、高精度地图、云平台等）。</li>
+<li>2020年2月24日，国家发改委发布《智能汽车创新发展战略》,智能交通系统和智慧城市相关设施建设取得积极进展，车用无线通信网络（LTE-V2X 等）实现区域覆盖，新一代车用无线通信网络（5G-V2X）在部分城市、高速公路逐步开展应用，高精度时空基准服务网络实现全覆盖。</li>
+<li>2019年9月19日，国务院印发《交通强国建设纲要》，提出加强智能网联汽车（智能汽车、自动驾驶、车路协同）研发，形成自主可控完整的产业链</li>
+<li>2018年12月28日，工信部发布《车联网(智能网联汽车)产业发展行动计划》提大力支持LTE-V2X、5G-V2X等无线通信网络关键技术研发与产业化，全面构建通信和计算相结合的车联网体系架构。二是完善标准体系，推动测试验证与示范应用。</li>
+<li>2018年6月19日，工业和信息化部制定并发布了《国家车联网产业标准体系建设指南（总体要求）》指出，加快共性基础标准制定，加紧研制车载电子产品关键技术标准、无线通信关键技术标准、面向车联网产业应用的 5GeV2X 关键技术标准制定；</li>
+<li>2017年6月13日，工业和信息化部发布了《国家车联网产业体系建设指南（智能网联汽车）（2017年）》提出到2020年，初步建立能够支撑驾驶辅助及低级别自动驾驶的智能网联汽车标准体系；</li>
+<li>2017年4月25日，工信部发布《汽车产业中长期发展规划》,提出加大智能网联汽车关键技术攻关。充分发挥智能网联汽车联盟、汽车产业联合基金等作用，不断完善跨产业协同创新机制，重点攻克环境感知、智能决策、协同控制等核心关键技术，促进传感器、车载终端、操作系统等研发与产业化应用。</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-9">
+    <section class="slide-content"><h3 id="-">驱动因素</h3>
+<ul>
+<li>5G网络加速C-V2X产业化进程
+在LTE C-V2X技术下，通信的速度和延迟很大程度上阻碍了车联网产业化。随着5G时代的来临，车联网也成为5G的应用场景。5G带来的高速度，<strong>低延迟，高带宽，高可靠性</strong>特点，可以帮助车辆间的位置，速度，驾驶方向和意图的交流，还可以推进数据传输到云端的速度提升。</li>
+<li>车企战略
+车企是车联网链路中关键的一环，近年来头部传统汽车厂商陆续和互联网巨头强强联合，共同构建互联网汽车的生态体系。<ul>
+<li>2015年阿里巴巴与上汽集团合资成立斑马网络</li>
+<li>2018年腾讯和长安汽车合资成立梧桐车联</li>
+<li>2020年华为联合一汽红旗、一汽奔腾、一汽解放等18家车企成立”5G汽车生态圈”</li>
+</ul>
+</li>
+<li>标准体系统一
+车联网V2X现存有两大标准体系：一个是由美国提出的<strong>基于DSRC的V2X体系</strong>，另一个是由中国主导的<strong>基于C-V2X标准体系</strong>。2020年11月美国联邦通讯委员会将5.9GHz频段划拨给C-V2X使用，这标志着C-V2X成为全球标准向前迈进一大步。</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-10">
+    <section class="slide-content"><h3 id="-">制约因素</h3>
+<ul>
+<li>各自平台信息不共享 
+车联网产业链中涉及产业较多，汽车厂商的各自为政导致目前车联网领域技术标准不统一，如上汽，丰田等汽车企业推出的车联系统各自的车联网终端设备不同，系统平台不同，这种模式下的车联网只能局限于同一品牌和同一系统之间的信息互通，导致不同品牌和不同系统之间难以实现互通。</li>
+<li>安全问题
+车联网的车与车，车与云端的信息互联，同时把车辆信息暴露在网络之下。车联网的安全问题制约了其发展。<ul>
+<li>2015年，美国菲亚特克莱斯勒汽车公司宣布，在美国召回140万辆有网络安全漏洞的轿车和卡车。</li>
+<li>2015年，360公司的安全团队正式公布，比亚迪多款汽车搭载的云服务存在安全漏洞，不仅仅是解锁等简单用车行为，360安全专家还现场演示了利用该漏洞如何控制汽车，同时宣称攻破时间仅用不到一周。</li>
+<li>2020年，特斯拉的安全漏洞导致车主通过特斯拉APP跨洲远程控制其他车辆，查看这些车辆的所有信息，还能正常使用APP远程控制解锁车门、打开车窗、开启空调等。</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-11">
+    <section class="slide-content"><h3 id="-">国内车联网企业巨头调研 - 百度</h3>
+<p>百度的智能驾驶体系为<strong>小度车载开放平台+阿波罗智能车云+CarLife手机车机智能互联</strong>。百度的车联网主要依托阿波罗Apollo智能车联平台，围绕<strong>小度车载OS和阿波罗智能车云</strong>两大解决方案。</p>
+<ul>
+<li><p>小度车载OS小度车载OS是集语音交互和计算机视觉的完整自然交互系统；</p>
+</li>
+<li><p>阿波罗智能车联平台解决了车内智能驾舱化、车外自动驾驶化、车路高度协同化。</p>
+<p>Apollo生态涵盖整车及零配件制造商福特、戴姆勒、宝马、北汽、一汽、奇瑞、比亚迪、金龙客车、博世、大陆、采埃孚等；威马、拜腾、理想等造车新势力；传感器及芯片制造商Velodyne、Intel、英伟达等；服务器供应商微软等；运输服务提供商首汽约车等；自动驾驶系统供应商智行者、Momenta等。</p>
+</li>
+<li><p>高精度地图方面，制作百度地图。</p>
+</li>
+<li><p>整车制造方面，投资威马汽车，蔚来汽车。</p>
+</li>
+</ul>
+<p><em>截止到2021年4月，搭载百度车联网功能的汽车品牌已超过60家，上市车型达500余款，服务超过1300万用户。2019年百度Apollo在长沙落地首个自动驾驶出租车队（Robotaxi）。</em></p>
+<p>百度的优势是对AI技术的布局，打造出了属于自己的车联网属性。</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-12">
+    <section class="slide-content"><h3 id="-">国内车联网企业巨头调研 - 阿里巴巴</h3>
+<p> 阿里巴巴的核心产品是<strong>AliOS车载操作系统</strong>。</p>
+<ul>
+<li><p>智能汽车解决方案</p>
+<p>2014年阿里和上汽合资成立<strong>斑马网络</strong>，提供智能汽车解决方案，包括<strong>智能操作系统AliOS、智能语音交互阿里云ET、云计算、导航定位、支付宝和OTA空中升级</strong>。</p>
+</li>
+<li><p>高精度地图方面，收购<strong>高德地图</strong>。</p>
+</li>
+<li><p>整车制造方面，投资<strong>小鹏汽车</strong>。</p>
+</li>
+</ul>
+<p>目前已经合作上汽、一汽、南北大众等车企10余个汽车品牌、40多款车型、100多万辆智能汽车上。</p>
+<p>阿里巴巴的车联网方案着重于”智能化”和”网联化“，<strong>整体水平逊色于百度</strong>。</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-13">
+    <section class="slide-content"><h3 id="-">国内车联网企业巨头调研 - 腾讯</h3>
+<p>腾讯车联网核心是完整的操作系统级解决方案，将腾讯生态融入到系统中。2018年腾讯成立梧桐车联，旨在为车企提供用户服务和营销、车联网和平台运营、地图和云服务、生态服务和安全风控五大核心能力。</p>
+<ul>
+<li>合作伙伴包括长安，广汽，吉利，一汽等车企。梧桐车联则侧重于为车企提供完整的操作系统级解决方案，在腾讯车联输出的基础能力之上，将腾讯生态融入到系统中，为汽车企业提供基于SDK的定制化适配和二次开发。</li>
+<li>梧桐车联发布的TINNOVE OpenOS是梧桐车联开发的智能网联车载操作系统，并将操作系统技术底座的部分模块面向全行业开源。OpenOS的开源和开放，可以帮助B端客户更灵活快速地打造自己的车机娱乐系统，同时，开发者可以更好地接入TINNOVE的标准化基础服务，极大地提升TINNOVE的开放性和适应性。</li>
+<li>高精度地图方面，入股四维图新。</li>
+<li>整车制造方面，投资蔚来，特斯拉。</li>
+</ul>
+<p>腾讯注重于开源平台的建设，通过第三方开发者去完善企业或者用户需要的内容。</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-14">
+    <section class="slide-content"><h3 id="-">国内车联网企业巨头调研 - 华为</h3>
+<p>华为在车联网领域的目标是，依托ICT领域深厚的工程、技术积累，围绕智能座舱、智能驾驶、智能网联、智能电动以及相关的云服务。</p>
+<ul>
+<li><p>华为定位 基于ICT技术，成为面向智能网联汽车的增量部件供应商。</p>
+</li>
+<li><p>华为数字汽车化解决方案</p>
+<p>包括云服务、智能驾驶（车载计算平台和智能驾驶子系统解决方案）、智能网联（4G/5G车载移动通信模块/T-Box，车载网络）、智能互联和智能能源等。</p>
+</li>
+<li><p>车联网分布式平台HUAWEI HiCar
+2019年12月29日，华为车联网分布式平台HUAWEI HiCar搭载新宝骏量产车型RC-6正式“上车”。目前HiCar生态合作伙伴已经超过30家车厂，包括奥迪、一汽、广汽、北汽、奇瑞、江淮等车企已经加入，合作车型超过120款。</p>
+</li>
+<li><p>5G技术</p>
+<p>华为有世界一流、国内第一的5G通讯技术，通过低延迟特性助力C-V2X的实现。</p>
+</li>
+<li><p>操作系统
+除了5G技术，鸿蒙OS操作系统将成为华为在车联网领域的核心竞争力。</p>
+</li>
+<li><p>云服务，建立自动驾驶云服务平台。</p>
+</li>
+<li><p>新能源汽车方面，开发电驱，充电及电池管理系统。</p>
+</li>
+<li><p>高精度地图方面，与四维图新合作。</p>
+</li>
+<li><p>国内最先量产的L3级自动驾驶</p>
+<p>4月17日，新一代智能豪华纯电轿车ARCFOX 极狐阿尔法 S在上海正式发布。根据发布会官网介绍，北汽蓝谷ARCFOX极狐αSHBT车型将采用三颗激光雷达搭载方案，同步搭载6个毫米波雷达，12个摄像头，13个超声波雷达，同时搭载算力可达352Tops的华为芯片，形成L3级以上的自动驾驶解决方案。</p>
+</li>
+</ul>
+<p>华为在车联网方面的布局面是国内最广，包括车载芯片、车载系统、通信技术、T-Box、电池、云计算等软硬件方面。华为和百度的车联网与自动驾驶技术是国内领头羊。</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-15">
+    <section class="slide-content"><h3 id="-">国内车联网企业巨头调研 - 大唐电信</h3>
+<ul>
+<li><p>智能芯片</p>
+<p>大唐电信和高通合资成立芯片公司瓴盛科技，2020年9月瓴盛科技发布了首款芯片产品——AIoT芯片JA310，该芯片采用三星11nm FinFET制程工艺，集成了AI处理引擎，应用于智能安防监控、人脸识别、视频会议、车载终端、运动相机等多种智能物联网领域。</p>
+</li>
+<li><p>车载终端</p>
+<p>大唐电信致力于车载终端产品，已经发布GV-T516A车载终端、GV-T516O车载终端、GV-T516R车载终端、OBD车载自动诊断系统以及OBU车载单元。</p>
+</li>
+<li><p>T-Box</p>
+<p>大唐电信在客运、物流等车辆行业的Telematics应用领域拥有完整的行业解决方案，包含车辆专用的Telematics终端的研发、 Telematics运营平台的建设、 Telematics Call Center的运营、车辆数据的采集与传输、分析等等。主要涉足于前装和后装市场，包含硬件车载设备的研发，软件运营平台的开发、运营，信息数据服务的提供等。</p>
+</li>
+<li><p>5G</p>
+<p>大唐电信集团国家工程实验室是国家5G科技项目的主要承担单位，牵头承担多个国家重大课题的研究，大规模天线关键技术研究等2个863 5G项目，以及大容量MIMO等8个重大专项5G研发类项目。</p>
+</li>
+</ul>
+<p>大唐电信以硬件，5G和芯片切入车联网领域，软件和AI领域偏弱。</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-16">
+    <section class="slide-content"><h3 id="-">国内车联网企业横向调研</h3>
+<ol>
+<li>激光雷达<ul>
+<li>激光雷达（Laser Radar），是以发射激光束探测目标的位置、速度等特征量的雷达系统。其工作原理是向目标发射探测信号（激光束）,然后将接收到的从目标反射回来的信号（目标回波）与发射信号进行比较,作适当处理后,就可获得目标的有关信息,如目标距离、方位、高度、速度、姿态、甚至形状等参数。</li>
+<li>机械激光雷达是通过机械控制旋转，固态激光雷达是通过电子部件代替机械旋转部件实现发射激光角度的调整。</li>
+<li>调研企业<ul>
+<li>速腾聚创</li>
+<li>镭神智能</li>
+<li>禾赛科技</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>传感器类型</th>
+<th>探测距离</th>
+<th>精度</th>
+<th>功能</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>激光雷达</td>
+<td>大于100米</td>
+<td>极高</td>
+<td>障碍检测、动态障碍检测、识别与跟踪、路面检测、环境建模</td>
+<td>实时测量周围物体与自身距离，测量精度高</td>
+<td>易受雨雪等恶劣天气的影响</td>
+</tr>
+<tr>
+<td>摄像头</td>
+<td>50米</td>
+<td>一般</td>
+<td>利用计算机视觉判别周边环境</td>
+<td>能够辨别物体的传感器</td>
+<td>易受光影影响；辨别能力依赖算法； 识别稳定性较差</td>
+</tr>
+<tr>
+<td>毫米波雷达</td>
+<td>250米</td>
+<td>较高</td>
+<td>感知大范围内车辆的运行情况，多用于自适应巡航系统</td>
+<td>性价比高</td>
+<td>无法探测行人</td>
+</tr>
+<tr>
+<td>超声波传感器</td>
+<td>3米内</td>
+<td>高</td>
+<td>探测低速环境，常用于自动泊车系统</td>
+<td>能探测绝大部分物体，且具有较高稳定性</td>
+<td>无法进行远距离探测</td>
+</tr>
+<tr>
+<td>GPS</td>
+<td>-</td>
+<td>短期测量精度高</td>
+<td>实时定位导航，把控环境情况</td>
+<td>能够实现全局视角的定位</td>
+<td>无法获得周围障碍物的位置信息</td>
+</tr>
+</tbody>
+</table>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-17">
+    <section class="slide-content"><h3 id="-c-">国内车联网企业横向调研- 深圳市速腾聚创科技有限公司(C轮)</h3>
+<ul>
+<li><p>类型</p>
+<p>激光雷达</p>
+</li>
+<li><p>简介</p>
+<p>RoboSense(速腾聚创)是一家自动驾驶激光雷达(LiDAR)环境感知解决方案提供商。公司围绕激光雷达(LiDAR)环境感知方案，在芯片、LiDAR传感器、AI算法等多个核心技术领域长时间创新与沉淀，以市场为导向，为客户提供不同组合的智能环境感知激光雷达系统。</p>
+</li>
+<li><p>投资亮点</p>
+<ul>
+<li><p>产品</p>
+<p>合作伙伴覆盖全球各大自动驾驶科技公司、车企、一级供应商等，产品技术已广泛应用于自动驾驶及高级辅助驾驶乘用车、商用车，物流车，机器人，RoboTaxi，RoboTruck，RoboBus, 车路协同，公共智慧交通等场景。</p>
+</li>
+<li><p>资源与合作</p>
+<p>投资方包括阿里巴巴、上汽、北汽、海通证券，多元的股东组合带来不同领域的资源。</p>
+</li>
+<li><p>技术</p>
+<p>AutoSens Award、Audi innovation lab champion和两届CES innovation Award得主。</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-18">
+    <section class="slide-content"><h3 id="-b-">国内车联网企业横向调研 - 深圳市镭神智能系统有限公司(B轮)</h3>
+<ul>
+<li><p>类型</p>
+<p>激光雷达</p>
+</li>
+<li><p>简介</p>
+<p>镭神智能，提供机器人导航避障激光雷达、激光灭蚊炮和激光灭蚊机器人、激光成像雷达、无人驾驶激光防撞雷达、无人机定高激光雷达、激光扫描仪、位移传感器、特种光纤激光器等产品及解决方案。</p>
+</li>
+<li><p>投资亮点</p>
+<ul>
+<li><p>产品</p>
+<p>车规级混合固态激光雷达、固态激光雷达、360°多线CX系列激光雷达等产品，合作伙伴包括东风悦享、蘑菇车联、熊猫智能公交等。</p>
+</li>
+<li><p>资源与合作</p>
+<p>投资方包括阿里巴巴、上汽、北汽、海通证券，多元的股东组合带来不同领域的资源。</p>
+</li>
+<li><p>技术</p>
+<p>国内首个、全球第二个取得正式认证报告的车规级激光雷达。</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-19">
+    <section class="slide-content"><h3 id="-3-">国内车联网企业横向调研 - 上海禾赛科技有限公司(3月终止科创板上市)</h3>
+<ul>
+<li><p>类型</p>
+<p>激光雷达</p>
+</li>
+<li><p>简介</p>
+<p>禾赛依靠560多人的团队打造出一系列创新型传感器解决方案，，禾赛科技的产品在全世界20个国家和地区的70座城市广受好评，已经成长为业内最具潜力、最具竞争力、且最受投资人青睐的“独角兽”企业。其估值达到 100 亿元，百度、博世是股东。</p>
+</li>
+<li><p>投资亮点</p>
+<ul>
+<li><p>产品</p>
+<p>禾赛激光雷达产品覆盖短距、中距和长距探测，具有业界领先的测量精度、分辨率、抗干扰性能及可靠性。主要为机械激光雷达。</p>
+</li>
+<li><p>资源与合作</p>
+<p>博世、保时捷、上汽、百度、滴滴等在汽车领域的合作。</p>
+</li>
+<li><p>技术</p>
+<ul>
+<li>创始人是清华、斯坦福等名校博士。</li>
+<li>和美国威力登达成专利交叉许可。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-20">
+    <section class="slide-content"><h3 id="-">国内车联网企业横向调研</h3>
+<ol start="2">
+<li><p>车载T-Box和OBD盒子</p>
+<ul>
+<li><p>T-Box</p>
+<p>Telematics BOX，简称车载T-BOX，主要用于通过CAN总线和后台系统/手机APP通信，实现手机APP的车辆信息显示与控制。车辆在获取到控制命令后，通过CAN总线发送控制报文并实现对车辆的控制，最后反馈操作结果到用户的手机APP上，仅这个功能可以帮助用户远程启动车辆、打开空调、调整座椅至合适位置等。</p>
+</li>
+<li><p>OBD盒子</p>
+<p>OBD盒子和T-Box二者实现控制的原理类似，T-Box一般用于前装，OBD一般用于后装。T-Box可集成OBD模块。</p>
+</li>
+<li><p>基本功能</p>
+<p>数据采集和存储、远程查询和控制、道路救援、故障诊断、异常提醒等。基本的接口有CAN通讯接口、USB接口、定位天线接口等。</p>
+</li>
+<li><p>调研企业</p>
+<ul>
+<li>速锐得</li>
+<li>联友科技</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://lh6.googleusercontent.com/Td-PWHMoQO6ODFjjDLqsIXyqFO7_hQVh-k9kOzozvPVL2OttKGr57OTv-zTPyO1eYwi0qutVxB6YJ2kf0Nb-nf77-hjw0qI7uQRCJ3klcM7f3VxpCrDJxpahgc9WT8BZ946imkyuCvg" alt="img"></p>
+</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-21">
+    <section class="slide-content"><h3 id="-">国内车联网企业横向调研 - 深圳速锐得科技有限公司</h3>
+<ul>
+<li><p>类型</p>
+<p>OBD组件、T-Box、汽车总线数据应用方案解决方案</p>
+</li>
+<li><p>简介</p>
+</li>
+<li><p>速锐得一家致力于汽车OBD(车载自动诊断系统)芯片、Canbus总线模块研发、车联网OBD方案设计的创新型国家高新技术企业。</p>
+</li>
+<li><p>投资亮点：</p>
+<ul>
+<li><p>产品</p>
+<p>OBD组件、T-Box等车联网终端。</p>
+</li>
+<li><p>成功案例</p>
+</li>
+<li><p>助力宝马汽车，基于CANBUS，实现读取门窗灯、反光镜、中控警告、超声波信号等，实现自动空调、远程自动座椅调整、读取安全气囊状态信息、胎压信息以及OBD数据信息，搭建宝马专属服务平台。</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-22">
+    <section class="slide-content"><h3 id="-">国内车联网企业横向调研 - 深圳联友科技有限公司</h3>
+<ul>
+<li><p>类型</p>
+<p>T-Box、OBD</p>
+</li>
+<li><p>简介</p>
+<p>面向汽车行业提供信息化整体解决方案、信息化产品、系统运行维护、云服务、大数据分析服务，智能网联及出行服务、车载智能终端研发，智能驾驶技术研发及汽车设计等业务。2020年4月，入选国务院国资委“科改示范企业”名单。</p>
+</li>
+<li><p>投资亮点：</p>
+<ul>
+<li><p>合作企业</p>
+<p>东风汽车、英菲尼迪、雷诺、海马汽车、法雷奥(法国汽车零件研发企业)</p>
+</li>
+<li><p>落地商用产品包括T-Box，OBD等。</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-23">
+    <section class="slide-content"><h3 id="-">国内车联网企业横向调研</h3>
+<ol start="3">
+<li>射频前端芯片<ul>
+<li>射频前端是指在通讯系统中，天线和中频（或基带）电路之间的部分。射频前端技术主要集中在滤波器(Filter)、功率放大器(PA, Power  Amplifier)、低噪声放大器(Low Noise Amplifier)、开关（RF Switch）。目前全球射频市场由引言提到的四家美国射频公司Skyworks、Qualcomm、Qorvo、Broadcom与日本Murata这五大射频巨头寡占。</li>
+<li>调研企业<ul>
+<li>紫光展锐</li>
+<li>唯捷创芯</li>
+<li>中普微电子</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://lh3.googleusercontent.com/fZM7UJG_EmJu1M92P0IemM6PirfMoFt2UQwZBdl7uO0iQ8eOAV-6qpJkqttpIKjM6xCTk5NkD6XUoaxfK2qJikjpHon4ZCAlws6wVKX5dlEZae-DhUNFma64tVybSbMOi34eNesMNyk" alt="img"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-24">
+    <section class="slide-content"><h3 id="-d-">国内车联网企业横向调研 - 北京紫光展锐科技有限公司(D轮及以上)</h3>
+<ul>
+<li><p>类型</p>
+<p>物联网领域的2G/3G/4G/5G行动通讯基带芯片设计，其余射频芯片、物联网芯片、显示器芯片、图像传感器芯片等核心技术的自主研发。产品包括移动通信中央处理器，基带芯片，AI芯片，射频前端芯片，射频芯片等各类通信、计算及控制芯片。</p>
+</li>
+<li><p>简介</p>
+<p>集成电路设计公司，总部位于北京。由紫光集团旗下的展讯通信、锐迪科微电子合并而成。</p>
+</li>
+<li><p>投资亮点：</p>
+<ul>
+<li><p>紫光集团背书。</p>
+</li>
+<li><p>基带芯片、射频芯片市场占有高</p>
+<p>2019年基带芯片出货量约七亿套，占全球27%，仅次于高通与联发科。</p>
+</li>
+<li><p>产品</p>
+<p>业界首款5G IoT芯片 V8811；国内首个5G RFFE(射频前端)整体解决方案；2020年2月，紫光展锐推出T7520，是业界首款采用6nm EUV先进制程工艺的5G芯片；车技T-Box解决方案</p>
+</li>
+<li><p>技术</p>
+<p>紫光展锐曾五次获得国家科技进步奖，其中特等奖1次、一等奖2次，已申请专利超过5000项，拥有3G/4G/5G、多卡多待、多模等核心专利。</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-25">
+    <section class="slide-content"><h3 id="-">国内车联网企业横向调研 - 唯捷创芯（天津）电子技术股份有限公司(新三板摘牌、科创板辅导)</h3>
+<ul>
+<li><p>类型</p>
+<p>射频功率放大器</p>
+</li>
+<li><p>简介</p>
+<p>专注于射频前端及高端模拟芯片的研发与销售，产品主要应用于智能手机等移动终端。</p>
+</li>
+<li><p>投资亮点</p>
+<ul>
+<li><p>行业认可度高。</p>
+<p>获得下游企业小米、vivo、联发科、oppo投资，合作手机企业多。</p>
+</li>
+<li><p>技术、经验与市场份额</p>
+<ul>
+<li><p>10年成立，累积销售超过13亿颗芯片</p>
+</li>
+<li><p>历经2G、3G、4G手机时代，有完整的对应方案，技术一直在迭代。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-26">
+    <section class="slide-content"><h3 id="-a-">国内车联网企业横向调研 - 无锡中普微电子有限公司(A轮)</h3>
+<ul>
+<li><p>类型</p>
+<p>射频前端解决方案</p>
+</li>
+<li><p>简介</p>
+<p>从事射频IC设计、研发及销售，提供2G/3G/4G全面的射频前端解决方案。</p>
+</li>
+<li><p>投资亮点</p>
+</li>
+<li><p>技术团队。中普微公司团队均在北美半导体行业工作多年，具有集成电路设计、系统集成及企业管理方面的丰富经验。</p>
+</li>
+<li><p>产品。产品涵盖GSM、W-CDMA、TD-SCDMA、CDMA2000以及快速演变的TD-LTE，提供2G/3G/4G全面的射频前端解决方案。</p>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-27">
+    <section class="slide-content"><h3 id="-">国内车联网企业横向调研</h3>
+<ol start="4">
+<li><p>智能终端芯片</p>
+<ul>
+<li><p>高算力的AI芯片。依靠高算力实现神经网络的推理，可以更低延迟实现控制。这个领域华为海思、寒武纪是国内领头羊。</p>
+</li>
+<li><p>调研企业</p>
+<ul>
+<li>地平线</li>
+</ul>
+</li>
+<li><p>个人理解</p>
+<p>5G时代来临，终端芯片不需要实现智能计算，在高带宽、低延迟的保证下，高计算量的神经网络计算由云端服务器来完成。</p>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-28">
+    <section class="slide-content"><h3 id="-c-">国内车联网企业横向调研 - 北京地平线机器人技术研发有限公司(C轮)</h3>
+<ul>
+<li><p>类型</p>
+<p>ADAS软硬件系统，智能驾驶芯片</p>
+</li>
+<li><p>简介</p>
+<p>汽车智能芯片公司，该公司研发的芯片涉及深度学习技术，该公司也是中华人民共和国首家实现车规级（满足汽车使用标准）智能芯片前装量产的企业。</p>
+</li>
+<li><p>投资亮点</p>
+<ul>
+<li><p>Horizon Matrix® 前视辅助驾驶解决方案</p>
+<p>基于征程2 单目前视解决方案，地平线携手国内行业领先的 Tier 1 福瑞泰克（ Freetech ），为主机厂提供高性能的 ADAS 前视一体机产品。基于征程2 单目前视解决方案，地平线与英博超算共同推出面向智能驾驶市场的域控制器，携手加速智能驾驶落地。</p>
+</li>
+<li><p>芯片市场</p>
+<p>2020年汽车智能芯片出货16万片，2021年5月算力达到96TOPS的智能驾驶芯片</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-29">
+    <section class="slide-content"><p>国内车联网企业横向调研 - </p>
+<ol start="5">
+<li><p>服务端芯片(云计算芯片)</p>
+<ul>
+<li><p>部署在服务端进行人工智能推理任务或者训练任务的高并发分布式张量运算芯片。一般为GPU、TPU、GPGPU等芯片。目前服务端芯片市场被英伟达、微软、AMD包揽。</p>
+</li>
+<li><p>调研企业</p>
+<p>天数智芯</p>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-30">
+    <section class="slide-content"><h3 id="-c-">国内车联网企业横向调研 - 上海天数智芯半导体有限公司(C轮)</h3>
+<ul>
+<li><p>类型</p>
+<p>云服务芯片</p>
+</li>
+<li><p>简介</p>
+<p>于2018年正式启动7纳米制程GPGPU云端训练芯片设计，是中国第一家专注于GPGPU芯片高性能计算系统的硬科技企业。</p>
+</li>
+<li><p>投资亮点：</p>
+<ul>
+<li><p>团队经验</p>
+<p>芯片团队是一支来自AMD的超过100人的国内顶尖的完整GPGPU研发团队，核心成员均具有多次7纳米芯片成功流片经验，行业经验超过20年。软件生态团队经验丰富。</p>
+</li>
+<li><p>先进技术</p>
+</li>
+<li><p>第一款BI芯片对标nvidia Tesla V100（32位浮点数算力为15.7TFLOPS）。目前在和浪潮联合测试中。</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-31">
+    <section class="slide-content"><h3 id="-">国内车联网企业横向调研</h3>
+<ol start="6">
+<li>自动驾驶(无人驾驶)<ul>
+<li>自动驾驶是车联网的终极应用，通过车联网带来的车与车之间，车与人之间，车与路之间的信息沟通，通过云端控制器实现智能自动驾驶。</li>
+<li>目前国内外的方案是大多是通过一系列视觉传感器和激光雷达实现信息采集，通过云端服务器进行决策。</li>
+<li>国内做得最好得是华为和百度。</li>
+<li>调研企业<ul>
+<li>小马智行</li>
+<li>初速度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-32">
+    <section class="slide-content"><h3 id="-">国内车联网企业横向调研</h3>
+<ul>
+<li><p>目前国际上对自动驾驶的级别分为了六大级别</p>
+</li>
+<li><p>无自动驾驶</p>
+</li>
+<li><p>驾驶员辅助</p>
+<blockquote>
+<p>自适应巡航系统可以与车辆保持安全距离，人来控制方向</p>
+</blockquote>
+</li>
+<li><p>部分自动驾驶</p>
+<blockquote>
+<p>高级驾驶员辅助系统，车能够控制转向，加速，减速。驾驶员可以随时控制汽车。特斯拉的 Autopilot 和凯迪拉克的（通用汽车）Super Cruise 系统</p>
+</blockquote>
+</li>
+<li><p>受条件制约的自动驾驶</p>
+<blockquote>
+<p>具有“环境检测”能力，根据路况进行调节方向和速度。系统无法执行任务时候，人类操作。</p>
+</blockquote>
+</li>
+<li><p>高度自动驾驶</p>
+<blockquote>
+<p>和3级的区别是如果发生意外或系统失效，4 级自动驾驶汽车可以进行干预。只能在限定区域行驶（通常是在城市路况，最高平均速度达 30 英里/小时）</p>
+</blockquote>
+</li>
+<li><p>完全自动驾驶。</p>
+<blockquote>
+<p>不需要人为关注，从而免除了“动态驾驶任务”</p>
+</blockquote>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-33">
+    <section class="slide-content"><h3 id="-c-">国内车联网企业横向调研 - 北京小马智行科技有限公司(C轮)</h3>
+<ul>
+<li><p>类型</p>
+<p>自动驾驶，汽车电子软件设计，汽车电子硬件研发，ADAS软硬件研发。</p>
+</li>
+<li><p>简介</p>
+<p>2016年12月成立，专注于L4级自动驾驶技术的公司，在美国硅谷，北京和广州设有研发中心。</p>
+</li>
+<li><p>投资亮点</p>
+<ul>
+<li><p>技术保障和名人效应</p>
+<p>楼天城博士是姚期智(中国唯一一位图灵奖得主)的天才学生，拥有Google X和百度的自动驾驶工作经历，且姚期智在小马智行担任首席顾问。</p>
+</li>
+<li><p>产品</p>
+<ul>
+<li>自主研发了一整套自动驾驶架构和操作平台”PonyBrain”</li>
+<li>厘米级定位系统</li>
+<li>全套自研后装自动驾驶软硬件系统Pony AlphaX</li>
+<li>中美上线自动驾驶出行服务PonyPilot+(自动驾驶打车Robottaxi服务)。</li>
+</ul>
+</li>
+<li><p>成功案例</p>
+<p>合作车型从乘用车到长途货运卡车，包括林肯MKZ，比亚迪秦等。</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-34">
+    <section class="slide-content"><h3 id="-momenta-c-">国内车联网企业横向调研 - 北京初速度科技有限公司Momenta(C轮)</h3>
+<ul>
+<li><p>类型</p>
+<p>自动驾驶全栈方案</p>
+</li>
+<li><p>简介</p>
+<p>2016年07月成立，Momenta的产品包括了不同级别的自动驾驶方案，以及衍生出的大数据服务。希望通过技术让车辆达到不同级别的自动驾驶功能，其核心技术有基于深度学习的环境感知、高精度地图和驾驶决策。</p>
+</li>
+<li><p>投资亮点</p>
+<ul>
+<li><p>产品</p>
+<p>后装自动驾驶软硬件系统MSD飞轮式L4；基于统一硬件平台开发的可量产的自动驾驶软件Mpilot；Mpilot Parking智能泊车；DMS解决方案Mpilot ICP(In-Cabin Camera Perception)；高精地图；车队安全解决方案AutoRing途铃；自动驾驶出租车 (Robotaxi) 产品Momenta GO；</p>
+</li>
+<li><p>专业奖项：自2018连续中国汽车零部件年度贡献奖。</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-35">
+    <section class="slide-content"><h3 id="-">国内外车联网企业纵向调研</h3>
+<ul>
+<li><p>车联网领域专利全球申请数量</p>
+<p>最多的国家是美国，其次是中国、日韩地区和欧洲地区。我国是车联网专利的第二大目标市场国。虽然我国汽车工业技术实力落后于欧美和日本，但在车联网领域具有重要的市场地位</p>
+</li>
+</ul>
+<p><img src="https://lh4.googleusercontent.com/5XGqGmsXi6NsLbK5IDvI2yIgQeBxaotOc5MwrQy2KxOxmFBjpIneT9pAOazhCBkSlkgFl-J220YkoafI2VMAOE4JrvAEi_39VvG7Y1-N0fFRdHxYd7pelkrgeLMcE3rHW1571hkfcXw" alt="img"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-36">
+    <section class="slide-content"><h3 id="-">国内外车联网企业纵向调研</h3>
+<ul>
+<li><p>车联网专利全球头部</p>
+<p>车联网专利全球前十五名的申请人主要是头部车企和汽车零部件供应商。</p>
+</li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/02SlqMjdPk2_ZOBpPCntFa7VvF35TZ840EJlJmrpD4oJKRL5g-XHMCorzOl4Bz7V9D7_m9QzbpofyFCJOvsywIIlGrY6BUVTylgBE-S5mpfSMNai9eaJd6gJS9P0JS0DQpRhdu0ubaQ" alt="img"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-37">
+    <section class="slide-content"><h3 id="-">国内外车联网企业纵向调研</h3>
+<ul>
+<li><p>车联网在华专利申请情况</p>
+<p>华为、中兴和大唐等本土通信企业围绕车载通信技术、车载通信终端设备等专利进行了较有规模的布局。</p>
+</li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/2n0qNCHr4y7KNSq-SD2QWrAZOImfT9HOmiAUAA4txa0Ay5f_C0lvuumNVUkdBC-wiLpQ5IrWaQtRjq3UJeiVWJcV11QchbAxpIeX_9e2mm5X2GFiPJ1V1x3AouIb-1h8JOr13h9-uT0" alt="img"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-38">
+    <section class="slide-content"><h3 id="-">国内外车联网企业纵向调研</h3>
+<ul>
+<li><p>全球802.11p类V2X专利申请走势</p>
+<p>截至 2020 年 7 月，802.11p 类 V2X 技术全球范围内专利申请数量为 3069 件，合并同族共计 2678 个专利族。802.11p 类 V2X 技术方向专利申请总体上呈现较为缓慢的逐年增长的趋势，2017年以后逐年减少且中国企业很少。</p>
+</li>
+</ul>
+<p><img src="https://lh4.googleusercontent.com/zGxMoczhZMseTgLiE25X3h4MqWgBAtXFFFk4d9wSm8c8_DwvJJ33SGoozNITHhaR5ardfA09fpkVAoFVypK0R-ycuYNDe--qdhGeiLeYSffiPoGieJMw8mg6EsJQCIKLsusy6feI1Zg" alt="img"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-39">
+    <section class="slide-content"><h3 id="-">国内外车联网企业纵向调研</h3>
+<ul>
+<li><p>全球C-V2X专利申请走势</p>
+<p>截至 2020 年 7 月，C-V2X 技术全球范围内专利申请数量为 4471件，合并同族共计 2879 个专利族。C-V2X专利总数超过802.11p 类 。该技术方向近五年间专利申请呈现较为快速的增长趋势，2016年以后年度申请量已超过 500 件。</p>
+</li>
+</ul>
+<p><img src="https://lh5.googleusercontent.com/WrnzN_78VpOIXWsUKXViHYF9qs0ZvuKXY7dxpcjLgEgpc89O1bUbekDX18q0pawuQYgAzZrFjYztvFTynoLCJFB8muAdsg3kW1UbIHDNrA-gLfQfNn0S_5VVqy9G7epAN3d8Yu7CSFA" alt="img"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-40">
+    <section class="slide-content"><h3 id="-">国内外车联网企业纵向调研</h3>
+<ul>
+<li><p>C-V2X专利全球情况</p>
+<p>C-V2X 车联网通信技术专利数量最多的是美国和中国等地区、其次是欧洲和日本地区。我国是C-V2X 技术最大的专利受理国家和布局目标国家。</p>
+</li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/ZW4aeiDDnqNjTdfoUCwRJ58P2OFThzqFXPxi5y5eoePojKKBWVBCGfst6Abekcim7nqWU0hFJxrsvpsgMYn6ALzdZUgxYb4pZF72O8mRlptC6jYZP6evfqAy-LeVy7ae8m3NNEA5uRE" alt="img"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-41">
+    <section class="slide-content"><h3 id="-">国内外车联网企业纵向调研</h3>
+<ul>
+<li><p>C-V2X专利国内头部</p>
+<p>C-V2X专利国内领先的企业是华为、中兴和大唐电信。</p>
+</li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/DWKHPrMOZ-XEH9WVSh5QMViy2JUU52_mjGD8f0JQ57WLzNsizZsNOQCqy9ZI0DdvhOUJhFFP7FiIKai3jCbH9HlPGrVCNUj9oOLaADcXvuJ8-lKAV_uzriAt0nA1tOXM91fmGJA0G2U" alt="img"></p>
+<ul>
+<li>总结<ul>
+<li>C-V2X标准将是车联网标准趋势</li>
+<li>中国在车联网C-V2X标准专利全球第一，占据半壁江山</li>
+<li>国内领先的企业为通讯巨头华为、中兴、大唐。</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-42">
+    <section class="slide-content"><h3 id="ai-">AI技术及行业调研</h3>
+<ul>
+<li><p>语音技术</p>
+<ul>
+<li><p>研究方向</p>
+<ul>
+<li>语音识别</li>
+<li>自然语言处理</li>
+<li>语音合成等</li>
+</ul>
+</li>
+<li><p>应用领域</p>
+<p>智能音箱，智能手机等</p>
+</li>
+<li><p>头部企业</p>
+<p>百度, 科大讯飞, 云知声, 依图，思必驰, 出门问问, 猎户星空, 标贝</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://lh4.googleusercontent.com/iyAfg9dtMqNzRV_dOdnkBa_TkhQqlUzMdfF3Lfvvsv5QjOJz8IaAnYv9JaBVCbmUCdsLUQiTAw7oC8_uiI7eeYDAp12HmqncHywEfWl-iG31ioaiitsLeoS8x2keVO3O7svFabr_kIM" alt="img"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-43">
+    <section class="slide-content"><h3 id="ai-">AI技术及行业调研</h3>
+<ul>
+<li><p>计算机视觉</p>
+<ul>
+<li><p>研究方向</p>
+<p>物体检测，人脸识别，图像提取，目标追踪，视频分析等</p>
+</li>
+<li><p>应用领域</p>
+<p>安防, 智能交通, 医疗, 机器人，自动驾驶等</p>
+</li>
+<li><p>头部企业</p>
+<p>商汤，旷世，海康威视，依图，云从</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://lh6.googleusercontent.com/_BUzxtAyTP0Xg6WbxCeVdcgICp5ksGLtSOoIK6_cbAcFDDXXKN5La84agEe3MPCvv0UG8yGXrrB043t_xK-Lx7YR7B1wHe1B4u8Sx9iHTb6uJ3xT1XDKagKhOAKOwZFVXqqSQmpGNnE" alt="img"></p>
+<ul>
+<li><p>推荐系统 </p>
+<ul>
+<li><p>应用领域</p>
+<p>电商, 新闻等</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-44">
+    <section class="slide-content"><h3 id="ai-">AI在车联网方面的应用</h3>
+<ul>
+<li>主要涉及技术<ul>
+<li>计算机视觉</li>
+<li>语音交互</li>
+<li>数据分析</li>
+</ul>
+</li>
+<li>应用场景<ul>
+<li>路边物体识别，图像分割</li>
+<li>车内语音交互，人脸识别，手势识别(智能座舱)</li>
+<li>速度决策，方向决策分析系统(车联网大脑)</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden author-slide" id="slide-45">
+    <section class="slide-content"><div class="author">
+  <h1 class="name">朱晓旭</h1>
+    <h3 class="url">
+      <a href="http://https://zhuxiaoxuhit.github.io/about/">http://https://zhuxiaoxuhit.github.io/about/</a>
+    </h3>
+</div>
+</section>
+  </div>
+
+  <div class="controls">
+    <div class="arrow prev"></div>
+    <div class="arrow next"></div>
+  </div>
+
+
+  <script type="text/javascript">
+    /**
+ * Returns the current page number of the presentation.
+ */
+function currentPosition() {
+  return parseInt(document.querySelector('.slide:not(.hidden)').id.slice(6));
+}
+
+
+/**
+ * Navigates forward n pages
+ * If n is negative, we will navigate in reverse
+ */
+function navigate(n) {
+  var position = currentPosition();
+  var numSlides = document.getElementsByClassName('slide').length;
+
+  /* Positions are 1-indexed, so we need to add and subtract 1 */
+  var nextPosition = (position - 1 + n) % numSlides + 1;
+
+  /* Normalize nextPosition in-case of a negative modulo result */
+  nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
+
+  document.getElementById('slide-' + position).classList.add('hidden');
+  document.getElementById('slide-' + nextPosition).classList.remove('hidden');
+
+  updateProgress();
+  updateURL();
+  updateTabIndex();
+}
+
+
+/**
+ * Updates the current URL to include a hashtag of the current page number.
+ */
+function updateURL() {
+  try {
+    window.history.replaceState({} , null, '#' + currentPosition());
+  } catch (e) {
+    window.location.hash = currentPosition();
+  }
+}
+
+
+/**
+ * Sets the progress indicator.
+ */
+function updateProgress() {
+  var progressBar = document.querySelector('.progress-bar');
+
+  if (progressBar !== null) {
+    var numSlides = document.getElementsByClassName('slide').length;
+    var position = currentPosition() - 1;
+    var percent = (numSlides === 1) ? 100 : 100 * position / (numSlides - 1);
+    progressBar.style.width = percent.toString() + '%';
+  }
+}
+
+
+/**
+ * Removes tabindex property from all links on the current slide, sets
+ * tabindex = -1 for all links on other slides. Prevents slides from appearing
+ * out of control.
+ */
+function updateTabIndex() {
+  var allLinks = document.querySelectorAll('.slide a');
+  var position = currentPosition();
+  var currentPageLinks = document.getElementById('slide-' + position).querySelectorAll('a');
+  var i;
+
+  for (i = 0; i < allLinks.length; i++) {
+    allLinks[i].setAttribute('tabindex', -1);
+  }
+
+  for (i = 0; i < currentPageLinks.length; i++) {
+    currentPageLinks[i].removeAttribute('tabindex');
+  }
+}
+
+/**
+ * Determines whether or not we are currently in full screen mode
+ */
+function isFullScreen() {
+  return document.fullscreenElement ||
+         document.mozFullScreenElement ||
+         document.webkitFullscreenElement ||
+         document.msFullscreenElement;
+}
+
+/**
+ * Toggle fullScreen mode on document element.
+ * Works on chrome (>= 15), firefox (>= 9), ie (>= 11), opera(>= 12.1), safari (>= 5).
+ */
+function toggleFullScreen() {
+  /* Convenient renames */
+  var docElem = document.documentElement;
+  var doc = document;
+
+  docElem.requestFullscreen =
+      docElem.requestFullscreen ||
+      docElem.msRequestFullscreen ||
+      docElem.mozRequestFullScreen ||
+      docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
+
+  doc.exitFullscreen =
+      doc.exitFullscreen ||
+      doc.msExitFullscreen ||
+      doc.mozCancelFullScreen ||
+      doc.webkitExitFullscreen;
+
+  isFullScreen() ? doc.exitFullscreen() : docElem.requestFullscreen();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Update the tabindex to prevent weird slide transitioning
+  updateTabIndex();
+
+  // If the location hash specifies a page number, go to it.
+  var page = window.location.hash.slice(1);
+  if (page) {
+    navigate(parseInt(page) - 1);
+  }
+
+  document.onkeydown = function (e) {
+    var kc = e.keyCode;
+
+    // left, down, H, J, backspace, PgUp - BACK
+    // up, right, K, L, space, PgDn - FORWARD
+    // enter - FULLSCREEN
+    if (kc === 37 || kc === 40 || kc === 8 || kc === 72 || kc === 74 || kc === 33) {
+      navigate(-1);
+    } else if (kc === 38 || kc === 39 || kc === 32 || kc === 75 || kc === 76 || kc === 34) {
+      navigate(1);
+    } else if (kc === 13) {
+      toggleFullScreen();
+    }
+  };
+
+  if (document.querySelector('.next') && document.querySelector('.prev')) {
+    document.querySelector('.next').onclick = function (e) {
+      e.preventDefault();
+      navigate(1);
+    };
+
+    document.querySelector('.prev').onclick = function (e) {
+      e.preventDefault();
+      navigate(-1);
+    };
+  }
+});
+
+
+  </script>
+</body>
+</html>
