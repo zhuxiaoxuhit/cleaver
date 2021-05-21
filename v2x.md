@@ -2,7 +2,8 @@ title: 车联网行业调研
 author:
   name: 朱晓旭
   url: http://https://zhuxiaoxuhit.github.io/about/
-output: 车联网行研.html
+output: v2x.html
+theme: sudodoki/reveal-cleaver-theme
 
 --
 
