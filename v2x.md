@@ -1,7 +1,7 @@
 title: 车联网行业调研
 author:
   name: 朱晓旭
-  url: http://https://zhuxiaoxuhit.github.io/about/
+  url: https://zhuxiaoxuhit.github.io/about/
 output: v2x.html
 
 --
@@ -579,12 +579,9 @@ output: v2x.html
 * 投资亮点：
 
   * 团队经验
-
-    芯片团队是一支来自AMD的超过100人的国内顶尖的完整GPGPU研发团队，核心成员均具有多次7纳米芯片成功流片经验，行业经验超过20年。软件生态团队经验丰富。
-
+芯片团队是一支来自AMD的超过100人的国内顶尖的完整GPGPU研发团队，核心成员均具有多次7纳米芯片成功流片经验，行业经验超过20年。软件生态团队经验丰富。
   * 先进技术
-
-  * 第一款BI芯片对标nvidia Tesla V100（32位浮点数算力为15.7TFLOPS）。目前在和浪潮联合测试中。
+第一款BI芯片对标nvidia Tesla V100（32位浮点数算力为15.7TFLOPS）。目前在和浪潮联合测试中。
 
 --
 
