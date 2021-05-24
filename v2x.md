@@ -3,7 +3,7 @@ author:
   name: 朱晓旭
   url: http://https://zhuxiaoxuhit.github.io/about/
 output: v2x.html
-theme: iamstarkov/cleaver-ribbon 
+theme: jdan/cleaver-retro 
 
 --
 
