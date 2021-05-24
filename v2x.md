@@ -3,7 +3,7 @@ author:
   name: 朱晓旭
   url: http://https://zhuxiaoxuhit.github.io/about/
 output: v2x.html
-theme: sudodoki/reveal-cleaver-theme
+theme: iamstarkov/cleaver-ribbon 
 
 --
 
@@ -29,7 +29,6 @@ theme: sudodoki/reveal-cleaver-theme
 ### 目录
 
 1. 车联网概述
-
 2. 产业链
 3. 商业化模式
 4. 发展历程
