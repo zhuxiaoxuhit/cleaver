@@ -119,7 +119,6 @@ ul {
   text-align: center;
   font-size: 95%;
   border: none;
-	color: #7e5f00;
 }
 
 a {
